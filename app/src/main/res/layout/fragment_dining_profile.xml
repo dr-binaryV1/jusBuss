@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/thisTest"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    tools:context="com.damianwynter.jusbuss.ui.DiningProfile">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/nameTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Papine Grill House"
+                    android:textAlignment="center"
+                    android:textSize="24sp"/>
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="227dp"
+                    android:layout_marginTop="10dp"
+                    app:srcCompat="@mipmap/food"/>
+
+                <TextView
+                    android:id="@+id/descTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="TextView"
+                    android:textSize="18sp"/>
+
+                <TextView
+                    android:id="@+id/openinghoursLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Opening Hours"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:id="@+id/openHoursTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textSize="18sp"/>
+
+                <TextView
+                    android:id="@+id/addressLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Address"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:id="@+id/addressTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textSize="18sp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="20dp"
+                    android:background="#9f9f9f"/>
+
+                <TextView
+                    android:id="@+id/contactLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Contact Information"
+                    android:textSize="18sp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingRight="30dp">
+
+                        <ImageButton
+                            android:id="@+id/dialerImageView"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="#FFFFFFFF"
+                            android:padding="0dp"
+                            android:scaleType="centerInside"
+                            app:srcCompat="@mipmap/phone"></ImageButton>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingRight="30dp">
+
+                        <ImageButton
+                            android:id="@+id/fbImageButton"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:padding="0dp"
+                            android:scaleType="centerInside"
+                            app:srcCompat="@mipmap/facebook"></ImageButton>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingRight="30dp">
+
+                        <ImageButton
+                            android:id="@+id/igImageButton"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:padding="0dp"
+                            android:scaleType="centerInside"
+                            app:srcCompat="@mipmap/ig"></ImageButton>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingRight="30dp">
+
+                        <ImageButton
+                            android:id="@+id/mapImageButton"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:padding="0dp"
+                            android:scaleType="centerInside"
+                            app:srcCompat="@mipmap/map"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    </RelativeLayout>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:orientation="vertical"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="wrap_content"
+                                             android:clickable="true"
+                                             android:hapticFeedbackEnabled="true"
+                                             tools:layout_editor_absoluteY="81dp"
+                                             tools:layout_editor_absoluteX="0dp">
+
+
+    <ImageView
+        android:id="@+id/diningImageView"
+        android:layout_width="0dp"
+        android:layout_height="61dp"
+        app:srcCompat="@mipmap/dining"
+        android:layout_marginStart="16dp"
+        app:layout_constraintRight_toLeftOf="@+id/nameTextView"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="@+id/descTextView"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/descTextView"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <TextView
+        android:id="@+id/nameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        tools:text="Papine Delight"
+        android:textSize="16sp"
+        android:layout_marginStart="93dp"
+        tools:layout_constraintTop_creator="1"
+        android:layout_marginTop="16dp"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/descTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="12sp"
+        tools:text="Food store at Papine Plaza"
+        tools:layout_constraintTop_creator="1"
+        android:layout_marginTop="17dp"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/nameTextView"
+        app:layout_constraintTop_toTopOf="@+id/nameTextView"/>
+
+    <TextView
+        android:id="@+id/addressTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        tools:text="Shop #3, Papine Plaza, Kingston 6"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/view"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="11dp"
+        app:layout_constraintLeft_toLeftOf="@+id/descTextView"/>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#9f9f9f"
+        android:layout_marginStart="16dp"
+        android:id="@+id/view"
+        tools:layout_constraintTop_creator="1"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@+id/diningImageView"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+</android.support.constraint.ConstraintLayout>

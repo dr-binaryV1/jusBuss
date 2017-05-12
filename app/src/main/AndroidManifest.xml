@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.damianwynter.jusbuss">
+    package="com.example.currentplacedetailsonmap">
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".ui.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.DiningProfile"
+            android:parentActivityName=".ui.DiningActivity" />
+        <activity
+            android:name=".ui.AddEntActivity"
+            android:parentActivityName=".ui.EntertainmentActivity" />
+        <activity
+            android:name=".ui.AddFacultyActivity"
+            android:parentActivityName=".ui.FacultyActivity" />
+        <activity
+            android:name=".ui.DiningActivity"
+            android:parentActivityName=".ui.MainActivity" />
+        <activity
+            android:name=".ui.EntertainmentActivity"
+            android:parentActivityName=".ui.MainActivity" />
+        <activity
+            android:name=".ui.FacultyActivity"
+            android:parentActivityName=".ui.UniversityActivity" />
+        <activity android:name=".ui.MenuActivity" />
+        <activity
+            android:name=".ui.AddDiningActivity"
+            android:parentActivityName=".ui.DiningActivity" />
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".ui.MapsActivity"
+            android:label="@string/title_activity_maps"
+            android:parentActivityName=".ui.MainActivity" />
+        <activity
+            android:name=".ui.GroceryActivity"
+            android:parentActivityName=".ui.MainActivity" />
+        <activity
+            android:name=".ui.HousingActivity"
+            android:parentActivityName=".ui.MainActivity" />
+        <activity
+            android:name=".ui.ViewHousingInfo"
+            android:parentActivityName=".ui.HousingActivity" />
+        <activity
+            android:name=".ui.ViewGroceryInfo"
+            android:parentActivityName=".ui.GroceryActivity" />
+        <activity
+            android:name=".ui.UniversityActivity"
+            android:parentActivityName=".ui.MainActivity" />
+
+        <activity android:name=".ui.Splash"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

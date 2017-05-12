@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@mipmap/ic_account_balance_black_24dp"
+            android:title="Home"/>
+        <item
+            android:id="@+id/nav_university"
+            android:icon="@mipmap/ic_school_black_24dp"
+            android:title="University" />
+        <item
+            android:id="@+id/nav_maps"
+            android:icon="@mipmap/ic_map_black_24dp"
+            android:title="Maps"/>
+        <item
+            android:id="@+id/nav_dining"
+            android:icon="@mipmap/ic_local_dining_black_24dp"
+            android:title="Dining"/>
+        <item
+            android:id="@+id/nav_ent"
+            android:icon="@mipmap/ic_event_black_24dp"
+            android:title="Entertainment"/>
+        <item
+            android:id="@+id/nav_housing"
+            android:icon="@mipmap/ic_home_black_24dp"
+            android:title="Housing"/>
+        <item
+            android:id="@+id/nav_grocery"
+            android:icon="@mipmap/grocery"
+            android:title="Grocery"/>
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Share"/>
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Send"/>
+        </menu>
+    </item>
+
+</menu>
