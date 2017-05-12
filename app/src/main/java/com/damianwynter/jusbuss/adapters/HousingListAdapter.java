@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.damianwynter.jusbuss.R;
 import com.damianwynter.jusbuss.models.Housing;
-import com.damianwynter.jusbuss.ui.HousingActivity;
+import com.damianwynter.jusbuss.activity.HousingActivity;
 import com.damianwynter.jusbuss.ui.HousingListFragment;
 
 
@@ -50,8 +50,8 @@ public class HousingListAdapter extends RecyclerView.Adapter {
 
         public ListViewHolder(View itemView) {
             super(itemView);
-            mLandLord = (TextView) itemView.findViewById(R.id.shopNameTV);
-            mPhone = (TextView) itemView.findViewById(R.id.shopOpenCloseHrsTV);
+            mLandLord = (TextView) itemView.findViewById(R.id.general_name);
+            mPhone = (TextView) itemView.findViewById(R.id.general_open_closeTV);
             mAddress = (TextView) itemView.findViewById(R.id.rentalAddressTV);
             itemView.setOnClickListener(this);
         }

@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.damianwynter.jusbuss.R;
-import com.damianwynter.jusbuss.ui.DiningActivity;
+import com.damianwynter.jusbuss.activity.DiningActivity;
 import com.damianwynter.jusbuss.ui.MenuFragment;
 
 public class MenuListAdapter extends RecyclerView.Adapter {

@@ -10,11 +10,54 @@ public class University {
     private String longitude;
     private String latitude;
     private String icon;
-
+    private GeneralBAF [] mBuildings;
+    private GeneralBAF [] mBanks;
+    private GeneralBAF [] mClubs;
+    private GeneralBAF [] mAtm;
     private Faculty[] mFaculties;
 
     public Faculty[] getFaculties() {
         return mFaculties;
+    }
+
+    public GeneralBAF[] getmBuildings() {
+        return mBuildings;
+    }
+
+    public void setmBuildings(GeneralBAF[] mBuildings) {
+        this.mBuildings = mBuildings;
+    }
+
+    public GeneralBAF[] getmBanks() {
+        return mBanks;
+    }
+
+    public void setmBanks(GeneralBAF[] mBanks) {
+        this.mBanks = mBanks;
+    }
+
+    public GeneralBAF[] getmClubs() {
+        return mClubs;
+    }
+
+    public void setmClubs(GeneralBAF[] mClubs) {
+        this.mClubs = mClubs;
+    }
+
+    public GeneralBAF[] getmAtm() {
+        return mAtm;
+    }
+
+    public void setmAtm(GeneralBAF[] mAtm) {
+        this.mAtm = mAtm;
+    }
+
+    public Faculty[] getmFaculties() {
+        return mFaculties;
+    }
+
+    public void setmFaculties(Faculty[] mFaculties) {
+        this.mFaculties = mFaculties;
     }
 
     public void setFaculties(Faculty[] faculties) {

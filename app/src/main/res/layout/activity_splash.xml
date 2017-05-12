@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
-    tools:context="com.damianwynter.jusbuss.ui.Splash">
+    tools:context="com.damianwynter.jusbuss.activity.Splash">
 
     <ImageView
         android:layout_width="180dp"

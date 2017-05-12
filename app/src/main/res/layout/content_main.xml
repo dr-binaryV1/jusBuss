@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:id="@+id/mainContent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.damianwynter.jusbuss.ui.MainActivity"
+    tools:context="com.damianwynter.jusbuss.activity.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
 

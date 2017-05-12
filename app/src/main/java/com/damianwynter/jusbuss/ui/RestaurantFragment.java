@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.damianwynter.jusbuss.R;
 import com.damianwynter.jusbuss.models.Dining;
+import com.damianwynter.jusbuss.activity.DiningActivity;
 
 public class RestaurantFragment extends Fragment{
     private TextView mName;

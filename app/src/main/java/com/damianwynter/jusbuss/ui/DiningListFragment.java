@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 
 import com.damianwynter.jusbuss.R;
 import com.damianwynter.jusbuss.adapters.DiningListAdapter;
+import com.damianwynter.jusbuss.activity.AddDiningActivity;
 
 public class DiningListFragment extends Fragment{
     public interface OnFoodShopSelectedInterface {
@@ -33,7 +34,6 @@ public class DiningListFragment extends Fragment{
             public void onClick(View view) {
 //                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                        .setAction("Action", null).show();
-
                 Intent intent = new Intent(getContext(), AddDiningActivity.class);
                 startActivity(intent);
             }

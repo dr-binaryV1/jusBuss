@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.damianwynter.jusbuss.R;
-import com.damianwynter.jusbuss.adapters.Grocery;
+import com.damianwynter.jusbuss.models.Grocery;
 
 public class ViewGroceryInfo extends AppCompatActivity {
     private TextView tvShopName, tvOpenHrs, tvAddress, tvLatLong, tvDescription;

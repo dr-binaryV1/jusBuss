@@ -6,6 +6,6 @@
     android:id="@+id/dining_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.damianwynter.jusbuss.ui.DiningActivity">
+    tools:context=".activity.DiningActivity">
 
 </android.support.constraint.ConstraintLayout>

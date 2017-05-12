@@ -7,7 +7,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.damianwynter.jusbuss.R;
-import com.damianwynter.jusbuss.ui.GroceryActivity;
+import com.damianwynter.jusbuss.models.Grocery;
+import com.damianwynter.jusbuss.activity.GroceryActivity;
 import com.damianwynter.jusbuss.ui.GroceryListFragment;
 
 /**
@@ -51,8 +52,8 @@ public class GroceryListAdapter extends RecyclerView.Adapter {
 
         public ListViewHolder(View itemView) {
             super(itemView);
-            mShopName = (TextView) itemView.findViewById(R.id.shopNameTV);
-            mShopOpenHrs = (TextView) itemView.findViewById(R.id.shopOpenCloseHrsTV);
+            mShopName = (TextView) itemView.findViewById(R.id.general_name);
+            mShopOpenHrs = (TextView) itemView.findViewById(R.id.general_open_closeTV);
             mShopAddress = (TextView) itemView.findViewById(R.id.shopAddressTV);
             itemView.setOnClickListener(this);
         }

@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.damianwynter.jusbuss.R;
+import com.damianwynter.jusbuss.activity.DiningActivity;
 
 public class ViewPagerFragment extends Fragment{
     public static final String KEY_DINING_INDEX = "dining_index";

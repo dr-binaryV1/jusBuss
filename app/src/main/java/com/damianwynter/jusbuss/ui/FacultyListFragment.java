@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.damianwynter.jusbuss.R;
 import com.damianwynter.jusbuss.adapters.FacultyListAdapter;
+import com.damianwynter.jusbuss.activity.AddFacultyActivity;
 
 public class FacultyListFragment extends Fragment{
     public interface OnFacultySelectedInterface {

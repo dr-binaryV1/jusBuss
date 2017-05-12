@@ -5,6 +5,6 @@
     android:layout_width="match_parent"
     android:id="@+id/housing_content"
     android:layout_height="match_parent"
-    tools:context="com.damianwynter.jusbuss.ui.HousingActivity">
+    tools:context="com.damianwynter.jusbuss.activity.HousingActivity">
 
 </android.support.constraint.ConstraintLayout>

@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.damianwynter.jusbuss.R;
 import com.damianwynter.jusbuss.models.Dining;
-import com.damianwynter.jusbuss.ui.DiningActivity;
+import com.damianwynter.jusbuss.activity.DiningActivity;
 import com.damianwynter.jusbuss.ui.DiningListFragment;
 
 public class DiningListAdapter extends RecyclerView.Adapter {
@@ -23,7 +23,8 @@ public class DiningListAdapter extends RecyclerView.Adapter {
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.dining_list_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.dining_list_item, parent, false);
 
         return new DiningListAdapter.ListViewHolder(view);
     }
@@ -40,6 +41,7 @@ public class DiningListAdapter extends RecyclerView.Adapter {
 
 
     /**
+     *
      * NEW CLASS
      */
     public class ListViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{

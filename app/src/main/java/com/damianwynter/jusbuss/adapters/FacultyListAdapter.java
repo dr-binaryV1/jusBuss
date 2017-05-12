@@ -8,9 +8,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.damianwynter.jusbuss.R;
-import com.damianwynter.jusbuss.ui.FacultyActivity;
+import com.damianwynter.jusbuss.activity.FacultyActivity;
 import com.damianwynter.jusbuss.ui.FacultyListFragment;
-import com.damianwynter.jusbuss.ui.MainActivity;
 import com.damianwynter.jusbuss.models.Faculty;
 
 public class FacultyListAdapter extends RecyclerView.Adapter{
