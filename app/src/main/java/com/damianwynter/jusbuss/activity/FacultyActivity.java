@@ -22,7 +22,7 @@ public class FacultyActivity extends AppCompatActivity implements FacultyListFra
         setContentView(R.layout.activity_faculty);
 
         mFaculties = MainActivity.mUniversity.getFaculties();
-        setTitle("JusBuss - Faculties");
+        setTitle("JusBuss - Faculties and Schools");
 
         FacultyListFragment savedFragment = (FacultyListFragment) getSupportFragmentManager()
                 .findFragmentByTag(FACULTY_LIST_FRAGMENT);
@@ -40,8 +40,8 @@ public class FacultyActivity extends AppCompatActivity implements FacultyListFra
     @Override
     public void onListFacultySelected(int index) {
         Intent intent = new Intent(this, MapsActivity.class);
-        intent.putExtra("longitude", -76.745746);
-        intent.putExtra("latitude", 18.003556);
+        intent.putExtra("longitude", mFaculties[index].getLongitude());
+        intent.putExtra("latitude", mFaculties[index].getLatitude());
         startActivity(intent);
     }
 }

@@ -37,6 +37,7 @@ public class MapsActivity extends AppCompatActivity
     private CameraPosition mCameraPosition;
     private Double longitude;
     private Double latitude;
+    private LatLng mDefaultLocation;
 
     // The entry point to Google Play services, used by the Places API and Fused Location Provider.
     private GoogleApiClient mGoogleApiClient;
@@ -47,8 +48,7 @@ public class MapsActivity extends AppCompatActivity
      * Default location changed to utech scit building
      * default zoom scalled back from 15 to 13
      */
-    private final LatLng mDefaultLocation = new LatLng(18.018322, -76.743036);
-    private static final int DEFAULT_ZOOM = 13;
+    private static final int DEFAULT_ZOOM = 16;
     private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
     private boolean mLocationPermissionGranted;
 
@@ -68,6 +68,7 @@ public class MapsActivity extends AppCompatActivity
         Intent intent = this.getIntent();
         longitude = intent.getDoubleExtra("longitude", 0.0);
         latitude = intent.getDoubleExtra("latitude", 0.0);
+        mDefaultLocation = new LatLng(latitude, longitude);
 
         // Retrieve location and camera position from saved instance state.
         if (savedInstanceState != null) {
@@ -150,6 +151,8 @@ public class MapsActivity extends AppCompatActivity
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(latitude,longitude))
                 .title("University of Technology"));
+
+        mMap.moveCamera( CameraUpdateFactory.newLatLngZoom(new LatLng(latitude,longitude) , 14.0f) );
 
         // Use a custom info window adapter to handle multiple lines of text in the
         // info window contents.

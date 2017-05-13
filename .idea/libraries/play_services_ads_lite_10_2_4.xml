@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="play-services-ads-lite-10.2.4">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.android/build-cache/73abafa1156aaef7ecf309987a9ccce5143425d5/output/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.android/build-cache/73abafa1156aaef7ecf309987a9ccce5143425d5/output/res" />
+      <root url="file://$USER_HOME$/.android/build-cache/e5e22e40c2ea6f3a723ff90976c88296d5793e9b/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/e5e22e40c2ea6f3a723ff90976c88296d5793e9b/output/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
