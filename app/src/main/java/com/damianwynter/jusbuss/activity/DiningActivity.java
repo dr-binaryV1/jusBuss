@@ -1,9 +1,11 @@
 package com.damianwynter.jusbuss.activity;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -37,13 +39,89 @@ public class DiningActivity extends AppCompatActivity implements DiningListFragm
     public static Dining[] mDinings;
     public static FoodMenu[][] mFoodMenus;
     public static SizeVariations[][] mFoodSizes;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dining);
 
-        getDining();
+        //getDining();
+
+        new GetData().execute();
+    }
+
+    private class GetData extends AsyncTask<String, Void, String> {
+        @Override
+        protected String doInBackground(String... params) {
+            String diningUrl = getString(R.string.host) + "/dining";
+
+            if(isNetworkAvailable()){
+                OkHttpClient client = new OkHttpClient();
+                Request request = new Request.Builder()
+                        .url(diningUrl)
+                        .build();
+
+                Call call = client.newCall(request);
+                call.enqueue(new Callback() {
+                    @Override
+                    public void onFailure(Call call, final IOException e) {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(DiningActivity.this, "Failed to make request. Please try again later",
+                                        Toast.LENGTH_SHORT).show();
+                                Log.v(TAG, "Exception Caught: ", e);
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onResponse(Call call, Response response) throws IOException {
+                        try{
+                            String jsonData = response.body().string();
+                            if(response.isSuccessful()){
+                                mDinings = getFoodShops(jsonData);
+                                mFoodMenus = getMenu(jsonData);
+
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        setTitle("JusBuss - Dining");
+
+                                        DiningListFragment savedFragment = (DiningListFragment) getSupportFragmentManager()
+                                                .findFragmentByTag(DINING_LIST_FRAGMENT);
+                                        if(savedFragment == null) {
+                                            DiningListFragment fragment = new DiningListFragment();
+                                            FragmentManager fragmentManager = getSupportFragmentManager();
+                                            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                                            fragmentTransaction.replace(R.id.dining_content, fragment, DINING_LIST_FRAGMENT);
+                                            fragmentTransaction.commit();
+                                        }
+                                    }
+                                });
+                            } else {
+                                Toast.makeText(DiningActivity.this, "Failed!", Toast.LENGTH_SHORT).show();
+                            }
+                        } catch(IOException | JSONException e) {
+                            Log.e(TAG, "Exception Caught: ", e);
+                        }
+                    }
+                });
+            }
+
+            return diningUrl;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            progressDialog = new ProgressDialog(DiningActivity.this);
+            progressDialog.setMessage("Loading...");
+            progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            progressDialog.setCancelable(false);
+            progressDialog.show();
+            super.onPreExecute();
+        }
     }
 
     @Override
@@ -63,63 +141,7 @@ public class DiningActivity extends AppCompatActivity implements DiningListFragm
         return isAvailable;
     }
 
-    private void getDining(){
-        String diningUrl = getString(R.string.host) + "/dining";
-
-        if(isNetworkAvailable()){
-            OkHttpClient client = new OkHttpClient();
-            Request request = new Request.Builder()
-                    .url(diningUrl)
-                    .build();
-
-            Call call = client.newCall(request);
-            call.enqueue(new Callback() {
-                @Override
-                public void onFailure(Call call, final IOException e) {
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            Toast.makeText(DiningActivity.this, "Failed to make request. Please try again later",
-                                    Toast.LENGTH_SHORT).show();
-                            Log.v(TAG, "Exception Caught: ", e);
-                        }
-                    });
-                }
-
-                @Override
-                public void onResponse(Call call, Response response) throws IOException {
-                    try{
-                        String jsonData = response.body().string();
-                        if(response.isSuccessful()){
-                            mDinings = getFoodShops(jsonData);
-                            mFoodMenus = getMenu(jsonData);
-
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    setTitle("JusBuss - Dining");
-
-                                    DiningListFragment savedFragment = (DiningListFragment) getSupportFragmentManager()
-                                            .findFragmentByTag(DINING_LIST_FRAGMENT);
-                                    if(savedFragment == null) {
-                                        DiningListFragment fragment = new DiningListFragment();
-                                        FragmentManager fragmentManager = getSupportFragmentManager();
-                                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                                        fragmentTransaction.replace(R.id.dining_content, fragment, DINING_LIST_FRAGMENT);
-                                        fragmentTransaction.commit();
-                                    }
-                                }
-                            });
-                        } else {
-                            Toast.makeText(DiningActivity.this, "Failed!", Toast.LENGTH_SHORT).show();
-                        }
-                    } catch(IOException | JSONException e) {
-                        Log.e(TAG, "Exception Caught: ", e);
-                    }
-                }
-            });
-        }
-    }
+    //private void getDining(){ }
 
     private Dining[] getFoodShops(String jsonData) throws JSONException{
         JSONArray foodShops = new JSONArray(jsonData);
@@ -139,6 +161,7 @@ public class DiningActivity extends AppCompatActivity implements DiningListFragm
 
             dinings[i] = dining;
         }
+        progressDialog.dismiss();
         return dinings;
     }
 
@@ -185,4 +208,6 @@ public class DiningActivity extends AppCompatActivity implements DiningListFragm
 
         return foodMenus;
     }
+
+
 }

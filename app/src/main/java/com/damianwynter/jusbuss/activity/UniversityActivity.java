@@ -1,6 +1,7 @@
 package com.damianwynter.jusbuss.activity;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +17,7 @@ public class UniversityActivity extends AppCompatActivity {
     TextView mAddress;
     TextView mOpenHours;
     ImageView mFaculty,mBuilding,mFoodShop, mClub, mAtm;
+
 
 
 
@@ -85,4 +87,7 @@ public class UniversityActivity extends AppCompatActivity {
         });
 
     }
+
+
 }
+

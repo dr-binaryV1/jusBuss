@@ -1,8 +1,10 @@
 package com.damianwynter.jusbuss.activity;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -30,71 +32,102 @@ public class EntertainmentActivity extends AppCompatActivity implements EntListF
     private static final String TAG = EntertainmentActivity.class.getSimpleName();
     public static Entertainment[] mEntertainments;
     public static final String ENT_LIST_FRAGMENT = "ent_list_fragment";
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_entertainment);
 
-        getEntertainment();
+        //getEntertainment();
+        new GetData().execute();
     }
 
-    private void getEntertainment(){
-        String entUrl = getString(R.string.host) + "/entertainment";
+    private class GetData extends AsyncTask<String, Void, String>{
 
-        if(isNetworkAvailable()){
-            OkHttpClient client = new OkHttpClient();
-            Request request = new Request.Builder()
-                    .url(entUrl)
-                    .build();
+        @Override
+        protected String doInBackground(String... params) {
 
-            Call call = client.newCall(request);
-            call.enqueue(new Callback() {
-                @Override
-                public void onFailure(Call call, final IOException e) {
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            Toast.makeText(EntertainmentActivity.this, "Failed to make request. Please try again later",
-                                    Toast.LENGTH_SHORT).show();
-                            Log.v(TAG, "Exception Caught: ", e);
-                        }
-                    });
-                }
+            String entUrl = getString(R.string.host) + "/entertainment";
 
-                @Override
-                public void onResponse(Call call, Response response) throws IOException {
-                    try{
-                        String jsonData = response.body().string();
-                        if(response.isSuccessful()){
-                            mEntertainments = getEntertainment(jsonData);
+            if(isNetworkAvailable()){
+                OkHttpClient client = new OkHttpClient();
+                Request request = new Request.Builder()
+                        .url(entUrl)
+                        .build();
 
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    setTitle("JusBuss - Entertainment");
-
-                                    EntListFragment savedFragment = (EntListFragment) getSupportFragmentManager()
-                                            .findFragmentByTag(ENT_LIST_FRAGMENT);
-                                    if(savedFragment == null) {
-                                        EntListFragment fragment = new EntListFragment();
-                                        FragmentManager fragmentManager = getSupportFragmentManager();
-                                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                                        fragmentTransaction.replace(R.id.ent_content, fragment, ENT_LIST_FRAGMENT);
-                                        fragmentTransaction.commit();
-                                    }
-                                }
-                            });
-                        }else {
-                            Toast.makeText(EntertainmentActivity.this, "Failed!", Toast.LENGTH_SHORT).show();
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+                Call call = client.newCall(request);
+                call.enqueue(new Callback() {
+                    @Override
+                    public void onFailure(Call call, final IOException e) {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(EntertainmentActivity.this, "Failed to make request. Please try again later",
+                                        Toast.LENGTH_SHORT).show();
+                                Log.v(TAG, "Exception Caught: ", e);
+                            }
+                        });
                     }
-                }
-            });
+
+                    @Override
+                    public void onResponse(Call call, Response response) throws IOException {
+                        try{
+                            String jsonData = response.body().string();
+                            if(response.isSuccessful()){
+                                mEntertainments = getEntertainment(jsonData);
+
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        setTitle("JusBuss - Entertainment");
+
+                                        EntListFragment savedFragment = (EntListFragment) getSupportFragmentManager()
+                                                .findFragmentByTag(ENT_LIST_FRAGMENT);
+                                        if(savedFragment == null) {
+                                            EntListFragment fragment = new EntListFragment();
+                                            FragmentManager fragmentManager = getSupportFragmentManager();
+                                            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                                            fragmentTransaction.replace(R.id.ent_content, fragment, ENT_LIST_FRAGMENT);
+                                            fragmentTransaction.commit();
+                                        }
+                                    }
+                                });
+                            }else {
+                                Toast.makeText(EntertainmentActivity.this, "Failed!", Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+            }
+            return entUrl;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            progressDialog = new ProgressDialog(EntertainmentActivity.this);
+            progressDialog.setMessage("Loading...");
+            progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            progressDialog.setCancelable(false);
+            progressDialog.show();
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+
+            try {
+                getEntertainment(s);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
+
+    //private void getEntertainment(){}
 
     private Entertainment[] getEntertainment(String jsonData) throws JSONException {
         JSONArray ent = new JSONArray(jsonData);
@@ -117,6 +150,7 @@ public class EntertainmentActivity extends AppCompatActivity implements EntListF
 
             entertainments[i] = entertainment;
         }
+        progressDialog.dismiss();
         return entertainments;
     }
 

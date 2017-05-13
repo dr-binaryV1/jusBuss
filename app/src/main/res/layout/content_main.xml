@@ -41,6 +41,7 @@
                     android:weightSum="1">
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/mapCardView"
                         style="@style/Base.CardView"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
@@ -60,7 +61,7 @@
                                 android:layout_height="102dp"
                                 android:layout_gravity="center"
                                 android:layout_margin="5dp"
-                                app:srcCompat="@drawable/maps"/>
+                                app:srcCompat="@drawable/maps" />
 
                             <TextView
                                 android:id="@+id/mapText"
@@ -70,14 +71,14 @@
                                 android:text="Maps"
                                 android:textAlignment="center"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                                android:textStyle="bold"
-                                />
+                                android:textStyle="bold" />
 
                         </LinearLayout>
 
                     </android.support.v7.widget.CardView>
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/facultyCardView"
                         style="@style/Base.CardView"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
@@ -97,7 +98,7 @@
                                 android:layout_height="102dp"
                                 android:layout_gravity="center"
                                 android:layout_margin="5dp"
-                                app:srcCompat="@drawable/faculties"/>
+                                app:srcCompat="@drawable/faculties" />
 
                             <TextView
                                 android:id="@+id/facultyText"
@@ -107,13 +108,13 @@
                                 android:text="Faculties"
                                 android:textAlignment="center"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                                android:textStyle="bold"
-                                />
+                                android:textStyle="bold" />
                         </LinearLayout>
 
                     </android.support.v7.widget.CardView>
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/diningCardView"
                         style="@style/Base.CardView"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -132,7 +133,7 @@
                                 android:layout_width="101dp"
                                 android:layout_height="102dp"
                                 android:layout_margin="5dp"
-                                app:srcCompat="@mipmap/dining"/>
+                                app:srcCompat="@mipmap/dining" />
 
                             <TextView
                                 android:id="@+id/diningText"
@@ -142,13 +143,13 @@
                                 android:text="Dining"
                                 android:textAlignment="center"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                                android:textStyle="bold"
-                                />
+                                android:textStyle="bold" />
                         </LinearLayout>
 
                     </android.support.v7.widget.CardView>
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/entertainmentCardView"
                         style="@style/Base.CardView"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -168,7 +169,7 @@
                                 android:layout_height="102dp"
                                 android:layout_gravity="center"
                                 android:layout_margin="5dp"
-                                app:srcCompat="@drawable/entertainment"/>
+                                app:srcCompat="@drawable/entertainment" />
 
                             <TextView
                                 android:id="@+id/entertainText"
@@ -178,13 +179,13 @@
                                 android:text="Entertainment"
                                 android:textAlignment="center"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                                android:textStyle="bold"
-                                />
+                                android:textStyle="bold" />
                         </LinearLayout>
 
                     </android.support.v7.widget.CardView>
 
                     <android.support.v7.widget.CardView
+                        android:id="@+id/housingCardView"
                         style="@style/Base.CardView"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -206,7 +207,7 @@
                                 android:layout_gravity="center"
                                 android:layout_margin="5dp"
                                 android:layout_weight="0.15"
-                                app:srcCompat="@drawable/housing"/>
+                                app:srcCompat="@drawable/housing" />
 
                             <TextView
                                 android:id="@+id/housingText"
@@ -218,7 +219,7 @@
                                 android:text="Housing"
                                 android:textAlignment="center"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                                android:textStyle="bold"/>
+                                android:textStyle="bold" />
                         </LinearLayout>
 
                     </android.support.v7.widget.CardView>

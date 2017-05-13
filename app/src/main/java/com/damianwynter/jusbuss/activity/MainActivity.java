@@ -6,6 +6,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,6 +16,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -66,6 +68,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
 
         getUniversity();
+        setCardListener();
+
+
     }
 
     @Override
@@ -348,5 +353,52 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             aData[i] = dataObj;
         }
         return aData;
+    }
+
+    private void setCardListener(){
+        CardView mapCard = (CardView) findViewById(R.id.mapCardView);
+        mapCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent mapIntent = new Intent(MainActivity.this, MapsActivity.class);
+                startActivity(mapIntent);
+            }
+        });
+
+        CardView facultyCard = (CardView) findViewById(R.id.facultyCardView);
+        facultyCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent facultyIntent = new Intent(MainActivity.this,FacultyActivity.class);
+                startActivity(facultyIntent);
+            }
+        });
+
+        CardView diningCard = (CardView) findViewById(R.id.diningCardView);
+        diningCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent diningTntent = new Intent(MainActivity.this, DiningActivity.class);
+                startActivity(diningTntent);
+            }
+        });
+
+        CardView entCard = (CardView) findViewById(R.id.entertainmentCardView);
+        entCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent entIntent = new Intent(MainActivity.this, EntertainmentActivity.class);
+                startActivity(entIntent);
+            }
+        });
+
+        CardView housingCard = (CardView) findViewById(R.id.housingCardView);
+        housingCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent housingIntent = new Intent(MainActivity.this, HousingActivity.class);
+                startActivity(housingIntent);
+            }
+        });
     }
 }
