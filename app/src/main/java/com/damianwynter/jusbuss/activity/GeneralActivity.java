@@ -73,7 +73,7 @@ public class GeneralActivity extends AppCompatActivity implements GeneralListFra
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
-                                    setTitle("JusBuss - ");
+                                    setTitle("JusBuss - "+getIntent().getStringExtra("name"));
 
                                     GeneralListFragment savedFragment = (GeneralListFragment) getSupportFragmentManager()
                                             .findFragmentByTag(GENERAL_LIST_FRAGMENT);

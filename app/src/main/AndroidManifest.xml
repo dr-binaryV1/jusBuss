@@ -32,9 +32,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ui.DiningProfile"
-            android:parentActivityName=".activity.DiningActivity" />
+
         <activity
             android:name=".activity.AddEntActivity"
             android:parentActivityName=".activity.EntertainmentActivity" />
@@ -94,7 +92,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.GeneralActivity"></activity>
+        <activity android:name=".activity.GeneralActivity"
+            android:parentActivityName=".activity.UniversityActivity" />
     </application>
 
 </manifest>

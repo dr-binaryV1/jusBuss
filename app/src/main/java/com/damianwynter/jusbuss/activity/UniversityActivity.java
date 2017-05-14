@@ -19,8 +19,6 @@ public class UniversityActivity extends AppCompatActivity {
     ImageView mFaculty,mBuilding,mFoodShop, mClub, mAtm;
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +62,7 @@ public class UniversityActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(getBaseContext(), GeneralActivity.class);
                 i.putExtra("data","buildings");
+                i.putExtra("name", "Buildings");
                 startActivity(i);
             }
         });
@@ -73,6 +72,7 @@ public class UniversityActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(getBaseContext(), GeneralActivity.class);
                 i.putExtra("data","atms");
+                i.putExtra("name", "ATMs");
                 startActivity(i);
             }
         });
@@ -82,6 +82,7 @@ public class UniversityActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(getBaseContext(), GeneralActivity.class);
                 i.putExtra("data","clubs");
+                i.putExtra("name", "Clubs");
                 startActivity(i);
             }
         });
