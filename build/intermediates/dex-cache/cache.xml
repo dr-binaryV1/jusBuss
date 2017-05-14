@@ -3,21 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="/home/damian/AndroidStudioProjects/jusbuss/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="d7957c334ffefb385f0aa72f9950947c9df104ad">
-        <dex dex="/home/damian/AndroidStudioProjects/jusbuss/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_e2778e331605279a7f698a11617f268d56aa7af6/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/home/damian/AndroidStudioProjects/jusbuss/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
         <dex dex="/home/damian/AndroidStudioProjects/jusbuss/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_1a51d7d43fc7c3d1beedc5bb527b9b943565a7b9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/damian/AndroidStudioProjects/jusbuss/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="86d0782b607722dbdf350f6971821aef008ea48e">
+        <dex dex="/home/damian/AndroidStudioProjects/jusbuss/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_e2778e331605279a7f698a11617f268d56aa7af6/classes.dex" />
     </item>
 
 </items>
