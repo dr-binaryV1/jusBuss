@@ -1,9 +1,12 @@
 package com.damianwynter.jusbuss.adapters;
 
+import android.content.Context;
+import android.content.res.Resources;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.damianwynter.jusbuss.R;
@@ -11,9 +14,6 @@ import com.damianwynter.jusbuss.activity.GeneralActivity;
 import com.damianwynter.jusbuss.models.GeneralBAF;
 import com.damianwynter.jusbuss.ui.GeneralListFragment;
 
-/**
- * Created by infinity on 5/12/2017.
- */
 
 public class GeneralListAdapter extends RecyclerView.Adapter {
     private GeneralBAF[] aGeneral = GeneralActivity.aData;
@@ -46,6 +46,7 @@ public class GeneralListAdapter extends RecyclerView.Adapter {
         private TextView aName;
         private TextView aOpenClose;
         private TextView aLocation;
+        private ImageView mImage;
         private int mIndex;
 
         public ListViewHolder(View itemView){
@@ -53,6 +54,7 @@ public class GeneralListAdapter extends RecyclerView.Adapter {
             aName = (TextView) itemView.findViewById(R.id.general_name);
             aOpenClose = (TextView) itemView.findViewById(R.id.general_open_closeTV);
             aLocation = (TextView) itemView.findViewById(R.id.general_location);
+            mImage = (ImageView) itemView.findViewById(R.id.generalImageView);
             itemView.setOnClickListener(this);
         }
 
@@ -61,10 +63,12 @@ public class GeneralListAdapter extends RecyclerView.Adapter {
             aName.setText(aGeneral[position].getaName());
             aOpenClose.setText(aGeneral[position].getaDescription());
             aLocation.setText(aGeneral[position].getaOpenTime()+"am - "+aGeneral[position].getaCloseTime()+"pm");
+            mImage.setImageResource(R.mipmap.noimage);
         }
         @Override
         public void onClick(View view) {
             aListener.onListSelected(mIndex);
+
         }
     }
 }

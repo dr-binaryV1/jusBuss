@@ -35,13 +35,12 @@ public class FacultyActivity extends AppCompatActivity implements FacultyListFra
         }
     }
 
-
-
     @Override
     public void onListFacultySelected(int index) {
         Intent intent = new Intent(this, MapsActivity.class);
         intent.putExtra("longitude", mFaculties[index].getLongitude());
         intent.putExtra("latitude", mFaculties[index].getLatitude());
+        intent.putExtra("title", mFaculties[index].getName());
         startActivity(intent);
     }
 }

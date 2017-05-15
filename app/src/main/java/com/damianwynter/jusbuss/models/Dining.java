@@ -7,6 +7,7 @@ public class Dining {
     private String mAddress;
     private Double mLongitude;
     private Double mLatitude;
+    private String tel;
     private int mOpenTime;
     private int mCloseTime;
     private String mIcon;
@@ -82,5 +83,13 @@ public class Dining {
 
     public void setFoodMenus(FoodMenu[][] foodMenus) {
         mFoodMenus = foodMenus;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
     }
 }

@@ -13,6 +13,7 @@ public class GeneralBAF implements Serializable {
     private int aCloseTime;
     private double aLongitude;
     private double aLatitude;
+    private String Image;
 
     public GeneralBAF(){
         this("Name",
@@ -64,7 +65,7 @@ public class GeneralBAF implements Serializable {
         this.aCloseTime = aCloseTime;
     }
 
-    public double getaLongitude() {
+    public double getLongitude() {
         return aLongitude;
     }
 
@@ -72,11 +73,19 @@ public class GeneralBAF implements Serializable {
         this.aLongitude = aLongitude;
     }
 
-    public double getaLatitude() {
+    public double getLatitude() {
         return aLatitude;
     }
 
     public void setaLatitude(double aLatitude) {
         this.aLatitude = aLatitude;
+    }
+
+    public String getImage() {
+        return Image;
+    }
+
+    public void setImage(String image) {
+        Image = image;
     }
 }

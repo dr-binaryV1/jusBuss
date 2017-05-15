@@ -31,11 +31,11 @@
                 android:padding="5dp">
 
                 <ImageView
-                    android:id="@+id/groceryImageView"
+                    android:id="@+id/generalImageView"
                     android:layout_width="61dp"
                     android:layout_height="61dp"
                     android:padding="3dp"
-                    app:srcCompat="@mipmap/grocery_icon"/>
+                    app:srcCompat="@mipmap/grocery_icon" />
             </LinearLayout>
 
             <LinearLayout

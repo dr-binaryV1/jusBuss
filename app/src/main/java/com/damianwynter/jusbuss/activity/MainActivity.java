@@ -133,12 +133,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             startActivity(intent);
 
         } else
-            if (id == R.id.nav_share) {
-            Toast.makeText(this, "Share Clicked", Toast.LENGTH_SHORT).show();
-        } else
-            if (id == R.id.nav_send) {
-            Toast.makeText(this, "Send Clicked", Toast.LENGTH_SHORT).show();
-        } else
             if (id == R.id.nav_ent){
 
             Intent intent = new Intent(this, EntertainmentActivity.class);

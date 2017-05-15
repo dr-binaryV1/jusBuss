@@ -56,6 +56,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     LocationRequest mLocationRequest;
     Double longitude;
     Double latitude;
+    String title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +67,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         Intent intent = this.getIntent();
         longitude = intent.getDoubleExtra("longitude", 0.0);
         latitude = intent.getDoubleExtra("latitude", 0.0);
+        title = intent.getStringExtra("title");
 
 
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -350,6 +352,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         // Setting the position of the marker
         options.position(new LatLng(latitude,longitude));
+        options.title(title);
 
         /**
          * For the start location, the color of marker is GREEN and

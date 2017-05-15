@@ -158,6 +158,9 @@ public class DiningActivity extends AppCompatActivity implements DiningListFragm
             dining.setCloseTime(jsonFoodShop.getInt("closeTime"));
             dining.setOpenTime(jsonFoodShop.getInt("openTime"));
             dining.setIcon(jsonFoodShop.getString("icon"));
+            dining.setTel(jsonFoodShop.getString("tel"));
+            dining.setLatitude(jsonFoodShop.getDouble("latitude"));
+            dining.setLongitude(jsonFoodShop.getDouble("longitude"));
 
             dinings[i] = dining;
         }

@@ -1,6 +1,7 @@
 package com.damianwynter.jusbuss.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v4.app.FragmentManager;
@@ -120,6 +121,7 @@ public class GeneralActivity extends AppCompatActivity implements GeneralListFra
             data.setaCloseTime(jsonFoodShop.getInt("closeTime"));
             data.setaOpenTime(jsonFoodShop.getInt("openTime"));
             data.setaLatitude(jsonFoodShop.getDouble("latitude"));
+            data.setImage(jsonFoodShop.getString("icon"));
 
             dataObjArray[i] = data;
         }
@@ -127,6 +129,10 @@ public class GeneralActivity extends AppCompatActivity implements GeneralListFra
     }
     @Override
     public void onListSelected(int aIndex) {
-
+        Intent intent = new Intent(this, MapsActivity.class);
+        intent.putExtra("longitude", aData[aIndex].getLongitude());
+        intent.putExtra("latitude", aData[aIndex].getLatitude());
+        intent.putExtra("title", aData[aIndex].getaName());
+        startActivity(intent);
     }
 }
